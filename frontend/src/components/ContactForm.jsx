@@ -21,7 +21,7 @@ const ContactForm = () => {
 
     const fetchContacts = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/contacts');
+            const response = await axios.get('https://mern-project-p6al.onrender.com/api/contacts');
             setContacts(response.data);
         } catch (error) {
             console.error('Error fetching contacts:', error);
@@ -46,14 +46,14 @@ const ContactForm = () => {
 
         try {
             if (editIndex === -1) {
-                const response = await axios.post('http://localhost:5000/api/contacts', formDataToSend, {
+                const response = await axios.post('https://mern-project-p6al.onrender.com/api/contacts', formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
                 });
                 setContacts([...contacts, response.data]);
             } else {
-                const response = await axios.put(`http://localhost:5000/api/contacts/${contacts[editIndex]._id}`, formDataToSend, {
+                const response = await axios.put(`https://mern-project-p6al.onrender.com/api/contacts/${contacts[editIndex]._id}`, formDataToSend, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
                     }
@@ -73,7 +73,7 @@ const ContactForm = () => {
 
     const handleDelete = async (contactId) => {
         try {
-            await axios.delete(`http://localhost:5000/api/contacts/${contactId}`);
+            await axios.delete(`https://mern-project-p6al.onrender.com/api/contacts/${contactId}`);
             const updatedContacts = contacts.filter((contact) => contact._id !== contactId);
             setContacts(updatedContacts);
             alert('Contact deleted successfully!');
