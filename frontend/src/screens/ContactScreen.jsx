@@ -73,11 +73,6 @@ const ContactScreen = () => {
         }
     };
 
-    const handleEdit = (index) => {
-        const contactToEdit = contacts[index];
-        setFormData({ ...contactToEdit });
-        setEditIndex(index);
-    };
 
   return (
     <FormContainer>
